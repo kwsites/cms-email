@@ -1,0 +1,32 @@
+{
+  "name": "@kwsites/cms-email",
+  "description": "Email templates and delivery compatible with the apostrophe cms",
+  "version": "0.0.0",
+  "author": "Steve King <steve@mydev.co>",
+  "contributors": [
+    {
+      "name": "Steve King",
+      "email": "steve@mydev.co"
+    }
+  ],
+  "scripts": {
+    "setup": "node ./scripts/setup"
+  },
+  "files": [
+    "index.js",
+    "lib/**/*.*",
+    "public/**/*.*",
+    "views/**/*.*"
+  ],
+  "license": "MIT",
+  "repository": "git://github.com/kwsites/cms-instagram-widgets.git",
+  "peerDependencies": {
+    "lodash": "^3.10.1"
+  },
+  "dependencies": {
+    "@kwsites/promise-cache": "0.0.1",
+    "moment": "^2.22.1",
+    "mustache": "^2.3.0",
+    "nodemailer": "^4.6.4"
+  }
+}
