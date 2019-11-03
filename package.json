@@ -10,6 +10,7 @@
     }
   ],
   "scripts": {
+    "postversion": "npm publish --access public && git push && git push --tags",
     "setup": "node ./scripts/setup"
   },
   "files": [
@@ -19,7 +20,7 @@
   "license": "MIT",
   "repository": "git://github.com/kwsites/cms-email.git",
   "peerDependencies": {
-    "lodash": "^3.10.1"
+    "lodash": "^4.17.11"
   },
   "dependencies": {
     "mustache": "^2.3.0",
