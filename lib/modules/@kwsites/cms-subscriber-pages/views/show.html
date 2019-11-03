@@ -24,16 +24,17 @@
 {%- set subscribed = data.piece['contact-subscribed'] -%}
 {%- set frequency = data.piece['contact-frequency'] -%}
 
-<form class="regular-text indented hot-subscriber-pages contact-form wide-form"
-      data-api-module="hot-subscriber-widgets"
+<form class="regular-text indented kwsites-subscriber-form contact-form wide-form"
+      data-api-module="@kwsites/cms-subscriber-pages"
       data-api-action="edit">
 
    <section class="regular-text" data-thank-you>
+
+      {# TODO: allow injecting a template path to the thank you message #}
       <p>Settings updated!</p>
       <ul class="grid-layout col-count-3 mob-col-count-1 block">
          <li><a href="{{ data.baseUrlWithPrefix }}/">Home</a></li>
          <li><a href="{{ data.baseUrlWithPrefix }}/blog">Blog</a></li>
-         <li><a href="{{ data.baseUrlWithPrefix }}/talent-portfolio">Talent Portfolio</a></li>
       </ul>
    </section>
 
