@@ -1,0 +1,23 @@
+<div style="font: 15px/1.5 'Arial';">
+   {{
+      apos.area(data, 'message', {
+         edit: false,
+         widgets: {
+            'apostrophe-rich-text': {
+               toolbar: ['Styles', 'Bold', 'Italic', 'Link'],
+               styles: [
+                  {
+                     name: 'Heading',
+                     element: 'h2',
+                     attributes: {style: 'font-weight: bold; font-size: 1.5em; padding: 0; margin: 0.5em 0'}
+                  }
+               ]
+            },
+            'apostrophe-images': {
+               renderer: 'single',
+               multiRenderer: 'email'
+            }
+         }
+      })
+   }}
+</div>
