@@ -1,0 +1,29 @@
+{%- extends data.outerLayout -%}
+{%- import 'apostrophe-pager:macros.html' as pager with context -%}
+
+{%- block bodyClass -%}
+   {{ super() }} page-header-none
+{%- endblock -%}
+
+{% block main %}
+
+   {% if not data.permissions.admin %}
+
+      {# This is catered for in the module... but just in case #}
+      <section class="regular-text">
+         To view and edit your subscription details, use your personalised subscription link which is included at the
+         bottom of all emails we send to you.
+      </section>
+
+   {% else %}
+
+      <div data-apos-ajax-context="subscriber">
+
+         {% include "indexAjax.html" %}
+
+      </div>
+
+   {% endif %}
+
+{% endblock %}
+

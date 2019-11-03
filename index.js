@@ -2,7 +2,9 @@
 module.exports = {
    moogBundle: {
       modules: [
-         'cms-email',
+         '@kwsites/cms-email',
+         '@kwsites/cms-subscriber',
+         '@kwsites/cms-subscriber-pages',
       ],
       directory: 'lib/modules'
    }

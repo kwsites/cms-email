@@ -1,0 +1,82 @@
+{%- extends data.outerLayout -%}
+
+{%- block title -%}
+   Edit Subscription
+   {# TODO: how can this include the site name but not the page/piece title #}
+{%- endblock -%}
+
+{% block main %}
+
+<section class="marketing">
+   <h3>Subscription for {{ data.piece['contact-email'] }}</h3>
+</section>
+
+{%- if data.optIn %}
+<section class="regular-text">
+   {{
+      apos.singleton(data.page, 'body_opt_in_confirm', 'apostrophe-rich-text', {
+         toolbar: ['Bold', 'Italic', 'Link']
+      })
+   }}
+</section>
+{%- endif %}
+
+{%- set subscribed = data.piece['contact-subscribed'] -%}
+{%- set frequency = data.piece['contact-frequency'] -%}
+
+<form class="regular-text indented hot-subscriber-pages contact-form wide-form"
+      data-api-module="hot-subscriber-widgets"
+      data-api-action="edit">
+
+   <section class="regular-text" data-thank-you>
+      <p>Settings updated!</p>
+      <ul class="grid-layout col-count-3 mob-col-count-1 block">
+         <li><a href="{{ data.baseUrlWithPrefix }}/">Home</a></li>
+         <li><a href="{{ data.baseUrlWithPrefix }}/blog">Blog</a></li>
+         <li><a href="{{ data.baseUrlWithPrefix }}/talent-portfolio">Talent Portfolio</a></li>
+      </ul>
+   </section>
+
+   <input type="hidden" name="slug" value="{{ data.piece.slug }}">
+   <input type="hidden" name="contact-email" value="{{ data.piece['contact-email'] }}">
+
+   <table>
+      <tr>
+         <td><input id="contact-subscribed" type="checkbox" name="contact-subscribed"
+            {%- if subscribed %} checked {% endif -%}></td>
+         <td><label class="text-align-left" for="contact-subscribed">Subscribed</label></td>
+      </tr>
+      <tr>
+         <td><input type="radio" name="contact-frequency" id="contact-frequency-daily" value="daily"
+                    data-enabled-by="contact-subscribed"
+                    {%- if frequency != 'weekly' %} checked {%- endif -%}
+                    {%- if not subscribed %} disabled {% endif -%}
+         ></td>
+         <td>
+            <label class="text-align-left" for="contact-frequency-daily">Individual emails as blogs are posted<br>- no more than three a week</label>
+         </td>
+      </tr>
+      <tr>
+         <td><input type="radio" name="contact-frequency" id="contact-frequency-weekly" value="weekly"
+                    data-enabled-by="contact-subscribed"
+                    {%- if frequency == 'weekly' %} checked {%- endif -%}
+            {%- if not subscribed %} disabled {% endif -%}
+         ></td>
+         <td>
+            <label class="text-align-left" for="contact-frequency-weekly">Weekly digest of all our latest news</label>
+         </td>
+      </tr>
+   </table>
+
+   <section class="regular-text">
+      {{
+         apos.singleton(data.page, 'body_mid_form', 'apostrophe-rich-text', {
+            toolbar: ['Bold', 'Italic', 'Link']
+         })
+      }}
+   </section>
+
+   <button data-action="edit">Save Preferences</button>
+</form>
+
+{% endblock %}

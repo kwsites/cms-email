@@ -1,0 +1,33 @@
+{%- import 'apostrophe-templates:macros/buttons.html' as buttons -%}
+
+<table class="pretty-table">
+   <thead>
+   <tr>
+      <th>Email</th>
+      <th>Source</th>
+      <th>Opt-In</th>
+      <th>Subscribed</th>
+      <th>Created</th>
+      <th>Updated</th>
+   </tr>
+   </thead>
+
+   <tbody data-apos-ajax-append="subscriber">
+      {% for piece in data.pieces %}
+      <tr>
+         <td><a href="{{ piece._url }}">{{ piece['contact-email'] }}</a></td>
+         <td>{{ piece['contact-event-source'] }}</td>
+         <td>{{ piece['opt-in'] }}</td>
+         <td>{{ piece['contact-subscribed'] }}</td>
+         <td>{{ piece.createdAt | date('DD-MM-YYYY') }}</td>
+         <td>{{ piece.updatedAt | date('DD-MM-YYYY') }}</td>
+      </tr>
+      {% endfor %}
+   </tbody>
+
+</table>
+
+{%- if data.currentPage < data.totalPages -%}
+{%- set href = data.url | build({ page: data.currentPage + 1, append: 1 }) -%}
+   {{ buttons.blockButton(href, 'Load more...', 'my-4', 'data-apos-ajax-infinite-scroll') }}
+{%- endif -%}
