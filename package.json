@@ -14,18 +14,14 @@
   },
   "files": [
     "index.js",
-    "lib/**/*.*",
-    "public/**/*.*",
-    "views/**/*.*"
+    "lib/**/*.*"
   ],
   "license": "MIT",
-  "repository": "git://github.com/kwsites/cms-instagram-widgets.git",
+  "repository": "git://github.com/kwsites/cms-email.git",
   "peerDependencies": {
     "lodash": "^3.10.1"
   },
   "dependencies": {
-    "@kwsites/promise-cache": "0.0.1",
-    "moment": "^2.22.1",
     "mustache": "^2.3.0",
     "nodemailer": "^4.6.4"
   }
