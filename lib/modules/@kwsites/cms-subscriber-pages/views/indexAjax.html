@@ -14,9 +14,10 @@
 
    <tbody data-apos-ajax-append="subscriber">
       {% for piece in data.pieces %}
+      {%- set lists = piece['subscriber-lists'] or [] -%}
       <tr>
          <td><a href="{{ piece._url }}">{{ piece['contact-email'] }}</a></td>
-         <td>{{ piece['contact-event-source'] }}</td>
+         <td style="white-space: pre-wrap">{{ lists | join('\n') }}</td>
          <td>{{ piece['opt-in'] }}</td>
          <td>{{ piece['contact-subscribed'] }}</td>
          <td>{{ piece.createdAt | date('DD-MM-YYYY') }}</td>
