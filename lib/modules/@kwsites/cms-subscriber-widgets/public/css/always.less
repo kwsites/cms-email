@@ -1,0 +1,81 @@
+
+
+.subscriber-form {
+
+   .fields {
+      margin: 0 auto;
+
+      td {
+         vertical-align: bottom;
+      }
+
+      input {
+         display: block;
+
+         &:nth-of-type(n+2) {
+            margin-top: @padding-size;
+         }
+      }
+   }
+
+   &.form-success {
+
+      .fields {
+         display: none;
+      }
+
+      .success {
+         display: block;
+      }
+
+   }
+
+   .success {
+      display: none;
+   }
+
+   input {
+      outline: none;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid @muted-foreground-color;
+      padding: 0.5rem;
+      color: @muted-foreground-color;
+      width: 15rem;
+
+      &:focus {
+         background: rgba(255, 255, 255, 0.3);
+      }
+
+      &.dirty:invalid {
+         border-bottom: 1px solid red;
+      }
+   }
+
+   button {
+      background: none;
+      border: 1px solid @muted-foreground-color;
+      border-radius: 0.5rem;
+      color: @muted-foreground-color;
+      padding: 0.5rem;
+      outline: none;
+
+      &:disabled {
+         background: none;
+         color: @muted-foreground-color;
+      }
+
+      &:not(:disabled) {
+         cursor: pointer;
+         background: @muted-foreground-color;
+         color: @highlight-color;
+
+
+         &:focus, &:hover {
+            box-shadow: 0 0 1rem rgba(255, 255, 255, 0.5) inset;
+         }
+      }
+
+   }
+
+}

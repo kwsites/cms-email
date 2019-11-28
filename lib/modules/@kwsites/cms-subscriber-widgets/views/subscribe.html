@@ -1,0 +1,14 @@
+
+<section class="modal-dialog hot-blog-subscribe-now" data-show-unless="blog-subscribe-shown">
+    <section class="modal-dialog-inner">
+
+        <p class="vertical-padding regular-text">Never miss an update, subscribe to the blog today:</p>
+
+        <form class="hot-subscriber" data-track-method="{{ data.page.type }}{% if data.piece %}:{{ data.piece.slug }}{% endif %}">
+            <div class="fields">
+                <input type="email" name="contact-email" placeholder="Email Address" required>
+                <button disabled>Subscribe...</button>
+            </div>
+        </form>
+    </section>
+</section>

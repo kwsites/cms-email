@@ -1,0 +1,43 @@
+{%- set widget = data.widget -%}
+{%- set includeName = widget.layoutIncludeName -%}
+{%- set thanksMessage = widget.thanksMessage -%}
+{%- set thanksTemporary = widget.thanksTemporary or false -%}
+
+<section class="subscribe-now-form">
+   <section class="modal-dialog-inner">
+
+      <form class="subscriber-form"
+            data-track-method="{{ data.page.slug }}{% if data.piece %}:{{ data.piece.slug }}{% endif %}"
+            {%- if thanksTemporary %}
+            data-temporary-success="{{ thanksTemporary }}000"
+            {%- endif %}
+            >
+
+         {%- if data.widget.isListRegistration -%}
+            {%- if widget.source -%}
+               <input type="hidden" name="contact-source" value="{{  widget.source }}" />
+            {%- endif -%}
+         {%- endif -%}
+
+         <table class="fields">
+            <tr>
+               <td>
+                  {%- if includeName -%}
+                  <input type="text" name="contact-name" placeholder="Name" required>
+                  {%- endif %}
+                  <input type="email" name="contact-email" placeholder="Email Address" required>
+               </td>
+               <td>
+                  <button disabled>{{ data.widget.layoutButtonText }}</button>
+               </td>
+            </tr>
+         </table>
+
+         <div class="success">
+            {{ thanksMessage }}
+         </div>
+      </form>
+
+
+   </section>
+</section>
