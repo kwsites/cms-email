@@ -2,6 +2,7 @@
 {%- set includeName = widget.layoutIncludeName -%}
 {%- set thanksMessage = widget.thanksMessage -%}
 {%- set thanksTemporary = widget.thanksTemporary or false -%}
+{%- set listSource = widget.source if widget.isListRegistration else false -%}
 
 <section class="subscribe-now-form">
    <section class="modal-dialog-inner">
@@ -11,13 +12,8 @@
             {%- if thanksTemporary %}
             data-temporary-success="{{ thanksTemporary }}000"
             {%- endif %}
+            {%- if listSource %} data-list-source="{{ listSource }}" {%- endif -%}
             >
-
-         {%- if data.widget.isListRegistration -%}
-            {%- if widget.source -%}
-               <input type="hidden" name="contact-source" value="{{  widget.source }}" />
-            {%- endif -%}
-         {%- endif -%}
 
          <table class="fields">
             <tr>
