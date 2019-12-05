@@ -13,7 +13,7 @@
          display: block;
 
          &:nth-of-type(n+2) {
-            margin-top: @padding-size;
+            margin-top: @kwsites-input-margin;
          }
       }
    }
@@ -38,9 +38,9 @@
       outline: none;
       background: transparent;
       border: none;
-      border-bottom: 1px solid @muted-foreground-color;
+      border-bottom: @kwsites-button-border-width solid @kwsites-button-border-color;
       padding: 0.5rem;
-      color: @muted-foreground-color;
+      color: @kwsites-input-enabled-color;
       width: 15rem;
 
       &:focus {
@@ -54,21 +54,21 @@
 
    button {
       background: none;
-      border: 1px solid @muted-foreground-color;
-      border-radius: 0.5rem;
-      color: @muted-foreground-color;
+      border: @kwsites-button-border-width solid @kwsites-button-border-color;
+      border-radius: @kwsites-button-border-radius;
+      color: @kwsites-button-enabled-color;
       padding: 0.5rem;
       outline: none;
 
       &:disabled {
-         background: none;
-         color: @muted-foreground-color;
+         background: @kwsites-button-disabled-background;
+         color: @kwsites-button-disabled-color;
       }
 
       &:not(:disabled) {
          cursor: pointer;
-         background: @muted-foreground-color;
-         color: @highlight-color;
+         background: @kwsites-button-enabled-background;
+         color: @kwsites-button-enabled-color;
 
 
          &:focus, &:hover {
