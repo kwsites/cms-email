@@ -4,6 +4,7 @@
    <thead>
    <tr>
       <th>Email</th>
+      <th>Name</th>
       <th>Source</th>
       <th>Opt-In</th>
       <th>Subscribed</th>
@@ -17,6 +18,7 @@
       {%- set lists = piece['subscriber-lists'] or [] -%}
       <tr>
          <td><a href="{{ piece._url }}">{{ piece['contact-email'] }}</a></td>
+         <td>{{ piece['contact-name'] or '-' }}</td>
          <td style="white-space: pre-wrap">{{ lists | join('\n') }}</td>
          <td>{{ piece['opt-in'] }}</td>
          <td>{{ piece['contact-subscribed'] }}</td>
