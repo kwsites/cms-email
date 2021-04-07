@@ -5,6 +5,12 @@ A set of modules for the [apostrophe cms](https://apostrophecms.org/) that simpl
 handling of 'subscriber' pieces (people who sign up to receive notifications from you)
 and 'email' pieces .
 
+Configure the module with options:
+
+- `emailHost` the host to connect to
+- `emailPort` the port number on the remote SMTP host
+- `transport` an optional object of properties to merge into the nodemailer transport configuration
+
 By installing this module, you also have access to the bundled modules listed below:
 
 ## @kwsites/cms-subscriber
@@ -19,7 +25,7 @@ be the page used as the subscription management page in the emails that get sent
 
 ## @kwsites/cms-subscriber-widgets
 
-Add a widget of type `@kwsites/cms-subscriber-widgets` to your website to capture user's names 
+Add a widget of type `@kwsites/cms-subscriber-widgets` to your website to capture user's names
 and email addresses. Configure the widget with a 'Registration Source' to add the user to that
 named group.
 
