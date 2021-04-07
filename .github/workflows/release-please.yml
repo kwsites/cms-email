@@ -14,7 +14,7 @@ jobs:
            with:
               token: ${{ secrets.GITHUB_TOKEN }}
               release-type: node
-              package-name: @kwsites/cms-email
+              package-name: '@kwsites/cms-email'
 
          -  uses: actions/checkout@v2
             if: ${{ steps.release.outputs.release_created }}
